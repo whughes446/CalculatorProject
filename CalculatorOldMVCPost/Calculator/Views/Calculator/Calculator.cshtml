@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model CalculatorTrial.Models.CalculatorModel
+
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculator App (WH)- Coding Exercise</title>
+</head>
+<body>
+    <div class="jumbotron" style="text-align: center">
+        <h1>Calculator Application Coding Exercise</h1>
+        <h2>Written by: Will Hughes</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="column" >
+                <div style="border-style: solid; border-width: medium; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px; background-color: #d9d9d9">
+                    <form action="/Calculator/Calculate" method="post">
+
+                        <div style="padding-bottom: 10px">
+                            <input id="CalculatorDisplay" name="CalculatorDisplay" type="text" value="@Html.Encode(Model.CurrentCalculatorDisplay.ToString())" readonly>
+                            <input name="LastOperation" type="hidden" value="@Html.Encode(Model.LastOperation)" />
+                            <input name="LastDisplayValue" type="hidden" value="@Html.Encode(Model.LastDisplayValue)" />
+                            <input id="ClearDisplayOnNewEntry" name="ClearDisplayOnNewEntry" type="hidden" value="@Html.Encode(Model.ClearDisplayOnNewEntry)" />
+                        </div>
+                        <div style="padding-bottom: 5px">
+                            <input id="Button7" type="button" value="7" onclick="AddDigitToDisplay(7);" class="btn" style="border: 0 none;" />
+                            <input id="Button8" type="button" value="8" onclick="AddDigitToDisplay(8);" class="btn" style="border: 0 none;"/>
+                            <input id="Button9" type="button" value="9" onclick="AddDigitToDisplay(9);" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonDivide" name="OperationButton" type="submit" value="/" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonClear" name="OperationButton" type="submit" value="CE" class="btn" style="border: 0 none;"/>
+                        </div>
+                        <div style="padding-bottom: 5px">
+                            <input id="Button4" type="button" value="4" onclick="AddDigitToDisplay(4);" class="btn" style="border: 0 none;"/>
+                            <input id="Button5" type="button" value="5" onclick="AddDigitToDisplay(5);" class="btn" style="border: 0 none;"/>
+                            <input id="Button6" type="button" value="6" onclick="AddDigitToDisplay(6);" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonMultiply" name="OperationButton" type="submit" value="*" class="btn" style="border: 0 none;"/>
+                        </div>
+                        <div style="padding-bottom: 5px">
+                            <input id="Button1" type="button" value="1" onclick="AddDigitToDisplay(1);" class="btn" style="border: 0 none;"/>
+                            <input id="Button2" type="button" value="2" onclick="AddDigitToDisplay(2);" class="btn" style="border: 0 none;"/>
+                            <input id="Button3" type="button" value="3" onclick="AddDigitToDisplay(3);" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonSubtract" name="OperationButton" type="submit" value="-" class="btn" style="border: 0 none;"/>
+                        </div>
+                        <div style="padding-bottom: 5px">                            
+                            <input id="Button0" type="button" value="0" onclick="AddDigitToDisplay(0);" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonDecimal" type="button" value="." class="btn" style="border: 0 none;"/>
+                            <input id="ButtonNegate" type="button" value="+/-" class="btn" style="border: 0 none;" />
+                            <input id="ButtonAdd" name="OperationButton" type="submit" value="+" class="btn" style="border: 0 none;"/>
+                            <input id="ButtonEqual" name="OperationButton" type="submit" value="=" class="btn" style="border: 0 none;"/>
+                        </div>
+                    </form>
+                </div>
+            </div>          
+            <div class="col-4"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="~/Scripts/Calculator.js"></script>
